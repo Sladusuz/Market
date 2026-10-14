@@ -78,3 +78,13 @@ eng yaxshi mijozlar, hafta kunlari, to'lov/yetkazish. Jadvallarni CSV ga yuklash
 
 - Yangi buyurtma haqida Telegramga xabar: Supabase **Database Webhooks** + Edge Function (bot tokeni serverda qoladi).
 - Click/Payme to'lovi: alohida Edge Function orqali.
+
+## Domenga ulash (ahost.uz va boshqa oddiy hostinglar)
+
+1. `js/config.js` ga Supabase kalitlarini yozing (yoki `setup.html` bilan tekshiring).
+2. ahost kabinetida **cPanel > File Manager > public_html** ni oching, ichini bo'shating va shu loyihaning **hamma fayllarini** (papkasiz, `index.html` to'g'ridan-to'g'ri `public_html` ichida bo'lsin) yuklang. `.htaccess` ham yuklansin (File Manager'da "Show Hidden Files" ni yoqing).
+3. Domen ahost'da ro'yxatdan o'tgan bo'lsa, u hosting bilan avtomatik bog'lanadi. Boshqa joyda bo'lsa, domen sozlamalarida **nameserver** larni ahost bergan manzillarga o'zgartiring (1-24 soat ichida kuchga kiradi).
+4. cPanel'da **SSL/TLS Status** (yoki Let's Encrypt) orqali domenga bepul SSL yoqing, keyin `.htaccess` dagi HTTPS yo'naltirish qatorlaridagi `#` ni olib tashlang.
+5. Tekshiring: `https://domeningiz/` va `https://domeningiz/admin/`.
+
+Sayt faqat statik fayllardan iborat, shuning uchun PHP yoki ma'lumotlar bazasi ahost'da kerak emas (baza Supabase'da).
